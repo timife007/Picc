@@ -1,4 +1,4 @@
-package com.timife.picc
+package com.timife.pix
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.timife.picc
+package com.timife.pix
 
 import org.junit.Test
 
