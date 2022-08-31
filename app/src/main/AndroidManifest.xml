@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Pix"
         tools:targetApi="31">
         <activity
-            android:name="com.timife.pix.MainActivity"
+            android:name="com.timife.pix.presentation.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
