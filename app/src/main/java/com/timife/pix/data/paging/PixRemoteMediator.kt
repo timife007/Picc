@@ -75,7 +75,7 @@ class PixRemoteMediator(
                             )
                         }
                         pixRemoteKeysDao.addAllPixRemoteKeys(pixRemoteKeys = keys)
-                        pixDao.insertPixListEntity(pixListEntity = responseData.pics.map { pixDto ->
+                        pixDao.insertPixListEntity(pixListEntity = it.pics.map { pixDto ->
                             pixDto.toPix()
                         })
                     }

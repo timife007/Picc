@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_pix"
+    app:startDestination="@id/pixListFragment">
+
+
+    <fragment
+        android:id="@+id/pixListFragment"
+        android:name="com.timife.pix.presentation.pix_list.PixListFragment"
+        android:label="PixList"
+        tools:layout="@layout/fragment_pix_list" >
+        <action
+            android:id="@+id/action_pixListFragment_to_pixDetailFragment"
+            app:destination="@id/pixDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pixDetailFragment"
+        android:name="com.timife.pix.presentation.pix_details.PixDetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_pix_detail" >
+        <argument
+            android:name="selectedPix"
+            app:argType="com.timife.pix.domain.model.Pix"/>
+    </fragment>
+</navigation>
