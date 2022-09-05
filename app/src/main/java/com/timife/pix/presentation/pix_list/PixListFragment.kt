@@ -1,5 +1,6 @@
 package com.timife.pix.presentation.pix_list
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -12,8 +13,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.timife.pix.R
 import com.timife.pix.databinding.FragmentPixListBinding
+import com.timife.pix.presentation.MainActivity
 import com.timife.pix.presentation.adapters.PixListAdapter
 import com.timife.pix.presentation.adapters.PixLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,7 +38,7 @@ class PixListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = PixListAdapter(requireContext(),PixListAdapter.OnPixClickListener{
+        val adapter = PixListAdapter(requireActivity(),PixListAdapter.OnPixClickListener{
             listViewModel.displayImages(it)
         })
 
@@ -83,12 +86,24 @@ class PixListFragment : Fragment() {
     private fun navigateToDetail(){
         listViewModel.navigateToSelectedItem.observe(viewLifecycleOwner, Observer {pixItem->
             if(pixItem != null){
-                this.findNavController()
-                    .navigate(
-                        PixListFragmentDirections.actionPixListFragmentToPixDetailFragment(
-                            pixItem
-                        )
-                    )
+                AlertDialog.Builder(activity, R.style.ThemeOverlay_App_MaterialAlertDialog)
+                    .setTitle(activity?.getString(R.string.see_more_details))
+                    .setMessage("Get more details about ${pixItem.userName}")
+                    .setNegativeButton(activity?.getString(R.string.cancel)){
+                            dialog, _ ->
+                        dialog.dismiss()
+                    }.setPositiveButton(activity?.getString(R.string.okay)){
+                            dialog, _ ->
+//                        clickListener.onClick(pixItem!!)
+                        this.findNavController()
+                            .navigate(
+                                PixListFragmentDirections.actionPixListFragmentToPixDetailFragment(
+                                    pixItem
+                                )
+                            )
+                        dialog.dismiss()
+                    }.show()
+
                 listViewModel.displayImagesComplete()
             }
         })
