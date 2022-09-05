@@ -26,3 +26,4 @@ This App demonstrates  Android Clean Architecture with Jetpack components, Hilt,
 * Retrofit2 & OkHttp3 - Construct the REST APIs.
 * Moshi - A modern JSON library for Kotlin and Java.
 * Material-Components 
+* Paging 3 library for paginated data.
