@@ -94,7 +94,6 @@ class PixListFragment : Fragment() {
                         dialog.dismiss()
                     }.setPositiveButton(activity?.getString(R.string.okay)){
                             dialog, _ ->
-//                        clickListener.onClick(pixItem!!)
                         this.findNavController()
                             .navigate(
                                 PixListFragmentDirections.actionPixListFragmentToPixDetailFragment(

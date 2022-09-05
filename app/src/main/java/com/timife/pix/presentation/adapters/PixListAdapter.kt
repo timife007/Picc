@@ -29,17 +29,6 @@ class PixListAdapter(private val context: Context, private val clickListener: On
             holder.bind(pixItem)
         }
         holder.itemView.setOnClickListener {
-//                MaterialAlertDialogBuilder(context, R.style.ThemeOverlay_App_MaterialAlertDialog)
-//                    .setTitle(context.getString(R.string.see_more_details))
-//                    .setMessage("Get more details about ${pixItem?.userName}")
-//                    .setNegativeButton(context.getString(R.string.cancel)){
-//                            dialog, _ ->
-//                        dialog.dismiss()
-//                    }.setPositiveButton(context.getString(R.string.okay)){
-//                            dialog, _ ->
-//                            clickListener.onClick(pixItem!!)
-//                            dialog.dismiss()
-//                    }.show()
             if (pixItem !=null){
                 clickListener.onClick(pixItem)
 
