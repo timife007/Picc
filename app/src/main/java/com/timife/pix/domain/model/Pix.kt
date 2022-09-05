@@ -1,11 +1,13 @@
 package com.timife.pix.domain.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
-@Entity(tableName = "pixListEntity")
+@Parcelize
 data class Pix(
-    @PrimaryKey val id: Int,
+    val id: Int,
     val comments: Int,
     val downloads: Int,
     val previewUrl:String,
@@ -13,5 +15,5 @@ data class Pix(
     val likes: Int,
     val userName: String,
     val tags: String,
-    val searchItem:String
-)
+    var searchItem:String
+): Parcelable

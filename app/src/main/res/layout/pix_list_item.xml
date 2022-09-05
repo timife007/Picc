@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -20,9 +21,10 @@
             android:layout_height="match_parent">
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:contentDescription="@string/large_image"
-                android:src="@drawable/nike"
+                tools:src="@drawable/nike"
+                app:imageUrl="@{pixItem.largeImageUrl}"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:elevation="2dp"
@@ -44,7 +46,7 @@
                 android:layout_gravity="center"
                 android:textSize="18sp"
                 android:layout_margin="5dp"
-                android:text="New Balance" />
+                android:text="@{pixItem.userName}" />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -58,7 +60,7 @@
                 android:layout_margin="5dp"
                 android:textAppearance="@style/list_item"
                 android:layout_gravity="center"
-                android:text="Yellow Flower, Dice,Rose" />
+                android:text="@{pixItem.tags}"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

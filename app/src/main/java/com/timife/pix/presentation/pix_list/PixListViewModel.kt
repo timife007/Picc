@@ -1,10 +1,12 @@
 package com.timife.pix.presentation.pix_list
 
 import androidx.lifecycle.*
+import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.timife.pix.domain.model.Pix
 import com.timife.pix.domain.usecases.SearchPixUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel

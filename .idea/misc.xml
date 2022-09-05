@@ -5,16 +5,19 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_comments.xml" value="0.316" />
         <entry key="app/src/main/res/drawable/ic_downloads.xml" value="0.218" />
+        <entry key="app/src/main/res/drawable/ic_image_search.xml" value="0.2915" />
         <entry key="app/src/main/res/drawable/ic_likes.xml" value="0.218" />
         <entry key="app/src/main/res/drawable/like_button.xml" value="0.315" />
         <entry key="app/src/main/res/drawable/loading_animation.xml" value="0.3305" />
         <entry key="app/src/main/res/drawable/loading_img.xml" value="0.3305" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.2786596119929453" />
+        <entry key="app/src/main/res/layout-land/fragment_pix_detail.xml" value="0.2786596119929453" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_pix_detail.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_pix_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/pix_list_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/pix_load_state_footer.xml" value="0.32019927536231885" />
-        <entry key="app/src/main/res/menu/search_menu.xml" value="0.2667792317433516" />
+        <entry key="app/src/main/res/menu/search_menu.xml" value="0.33" />
       </map>
     </option>
   </component>

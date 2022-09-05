@@ -1,14 +1,20 @@
 package com.timife.pix.presentation.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.timife.pix.R
 import com.timife.pix.databinding.PixListItemBinding
 import com.timife.pix.domain.model.Pix
+import com.timife.pix.presentation.pix_list.PixListFragmentDirections
 
-class PixListAdapter(private val clickListener: OnPixClickListener) :
+class PixListAdapter(private val context: Context, private val clickListener: OnPixClickListener) :
     PagingDataAdapter<Pix, PixListAdapter.PixViewHolder>(PixDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PixViewHolder {
@@ -23,26 +29,24 @@ class PixListAdapter(private val clickListener: OnPixClickListener) :
             holder.bind(pixItem)
         }
         holder.itemView.setOnClickListener {
-            if (pixItem != null) {
-                clickListener.onClick(pixItem)
-            }
+                MaterialAlertDialogBuilder(context, R.style.ThemeOverlay_App_MaterialAlertDialog)
+                    .setTitle(context.getString(R.string.see_more_details))
+                    .setMessage("Get more details about ${pixItem?.userName}")
+                    .setNegativeButton(context.getString(R.string.cancel)){
+                            dialog, _ ->
+                        dialog.dismiss()
+                    }.setPositiveButton(context.getString(R.string.okay)){
+                            dialog, _ ->
+                            clickListener.onClick(pixItem!!)
+                            dialog.dismiss()
+
+                    }.show()
+//            if (pixItem !=null){
+//                clickListener.onClick(pixItem)
+//
+//            }
         }
-//        holder.itemView.dropdown.setOnClickListener {
-//            val inventoryItemOptions = arrayOf("Delete")
-//            MaterialAlertDialogBuilder(context).setTitle("")
-//                .setItems(inventoryItemOptions) { dialog,
-//                                                  which ->
-//                    MaterialAlertDialogBuilder(context).setTitle("Delete Item").setMessage("Do you want to completely delete this classification?").setNegativeButton("No"){
-//                            dialog, _ ->
-//                        dialog.dismiss()
-//                    }.setPositiveButton("Yes"){
-//                            dialog, _ ->
-//                        onDeleteListener.delete(inventoryProduct!!)
-//                        notifyDataSetChanged()
-//                        dialog.dismiss()
-//                    }.show()
-//                }.show()
-//        }
+
     }
 
     class PixViewHolder(private val binding: PixListItemBinding) :

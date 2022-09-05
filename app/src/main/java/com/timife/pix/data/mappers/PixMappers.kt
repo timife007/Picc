@@ -13,6 +13,6 @@ fun PixDto.toPix(): Pix {
         downloads = downloads,
         tags = tags,
         comments = comments,
-        searchItem = searchItem ?: ""
+        searchItem = ""
     )
 }

@@ -21,7 +21,7 @@ data class PixDto(
     val tags: String,
     val type: String,
     val user: String,
-    @Json(name = "user_id")
+    @field:Json(name = "user_id")
     val userId: Int,
     val userImageURL: String,
     val views: Int,
@@ -30,6 +30,5 @@ data class PixDto(
     @field:Json(name = "webformatURL")
     val webFormatUrl: String,
     @field:Json(name = "webformatWidth")
-    val webFormatWidth: Int,
-    var searchItem:String? = null
+    val webFormatWidth: Int
 )

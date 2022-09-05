@@ -1,6 +1,5 @@
 package com.timife.pix.di
 
-import com.timife.pix.data.local.database.PixDb
 import com.timife.pix.data.remote.PixApi
 import com.timife.pix.data.repositories.PixRepositoryImpl
 import com.timife.pix.domain.repositories.PixRepository
@@ -17,9 +16,7 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun bindPixRepository(
-        api: PixApi,
-        db: PixDb
-    ): PixRepository {
-        return PixRepositoryImpl(api,db)
+        api: PixApi): PixRepository {
+        return PixRepositoryImpl(api)
     }
 }

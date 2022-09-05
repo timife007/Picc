@@ -7,10 +7,10 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface PixApi{
-    @GET("")
+    @GET("/api/")
     suspend fun getPixImages(
-        @Query("apiKey") apiKey : String = BuildConfig.API_KEY,
-        @Query("q") query:String = "Fruits",
+        @Query("key") apiKey : String = BuildConfig.API_KEY,
+        @Query("q") query:String="fruits",
         @Query("page") page:Int
     ): Response<PixResponse>
 }
